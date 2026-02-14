@@ -4,6 +4,39 @@
 	"parameters": {
 		"factoryName": {
 			"value": "ADFsandhyacourse"
+		},
+		"linkedserviceDL_accountKey": {
+			"value": ""
+		},
+		"ls_azuresql_password": {
+			"value": ""
+		},
+		"lsonprem_password": {
+			"value": ""
+		},
+		"linkedserviceDL_properties_typeProperties_url": {
+			"value": "https://storagedatafactorysand.dfs.core.windows.net/"
+		},
+		"ls_azuresql_properties_typeProperties_server": {
+			"value": "adf-project1.database.windows.net"
+		},
+		"ls_azuresql_properties_typeProperties_database": {
+			"value": "adfprojectdb"
+		},
+		"ls_azuresql_properties_typeProperties_userName": {
+			"value": "adminadmin"
+		},
+		"ls_github_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com/"
+		},
+		"lsonprem_properties_typeProperties_host": {
+			"value": "C:\\sanfilesadf"
+		},
+		"lsonprem_properties_typeProperties_userId": {
+			"value": "desktop-22h8gpd\\dell"
+		},
+		"managertrigger_properties_typeProperties_scope": {
+			"value": "/subscriptions/30476163-beb6-4b6e-aacc-8c5aca53c8b8/resourceGroups/azurefundamentals/providers/Microsoft.Storage/storageAccounts/storagedatafactorysand"
 		}
 	}
 }

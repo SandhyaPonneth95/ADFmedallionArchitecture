@@ -7,6 +7,50 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "ADFsandhyacourse"
 		},
+		"linkedserviceDL_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'linkedserviceDL'"
+		},
+		"ls_azuresql_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'ls_azuresql'"
+		},
+		"lsonprem_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'lsonprem'"
+		},
+		"linkedserviceDL_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://storagedatafactorysand.dfs.core.windows.net/"
+		},
+		"ls_azuresql_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "adf-project1.database.windows.net"
+		},
+		"ls_azuresql_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "adfprojectdb"
+		},
+		"ls_azuresql_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "adminadmin"
+		},
+		"ls_github_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://raw.githubusercontent.com/"
+		},
+		"lsonprem_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "C:\\sanfilesadf"
+		},
+		"lsonprem_properties_typeProperties_userId": {
+			"type": "string",
+			"defaultValue": "desktop-22h8gpd\\dell"
+		},
+		"managertrigger_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/30476163-beb6-4b6e-aacc-8c5aca53c8b8/resourceGroups/azurefundamentals/providers/Microsoft.Storage/storageAccounts/storagedatafactorysand"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -33,10 +77,63 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"linkedserviceDL_accountKey": {
+						"value": "[parameters('linkedserviceDL_accountKey')]"
+					},
+					"ls_azuresql_password": {
+						"value": "[parameters('ls_azuresql_password')]"
+					},
+					"linkedserviceDL_properties_typeProperties_url": {
+						"value": "[parameters('linkedserviceDL_properties_typeProperties_url')]"
+					},
+					"ls_azuresql_properties_typeProperties_server": {
+						"value": "[parameters('ls_azuresql_properties_typeProperties_server')]"
+					},
+					"ls_azuresql_properties_typeProperties_database": {
+						"value": "[parameters('ls_azuresql_properties_typeProperties_database')]"
+					},
+					"ls_azuresql_properties_typeProperties_userName": {
+						"value": "[parameters('ls_azuresql_properties_typeProperties_userName')]"
+					},
+					"ls_github_properties_typeProperties_url": {
+						"value": "[parameters('ls_github_properties_typeProperties_url')]"
+					},
+					"managertrigger_properties_typeProperties_scope": {
+						"value": "[parameters('managertrigger_properties_typeProperties_scope')]"
 					}
 				}
 			},
 			"dependsOn": []
+		},
+		{
+			"name": "ADFsandhyacourse_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"lsonprem_password": {
+						"value": "[parameters('lsonprem_password')]"
+					},
+					"lsonprem_properties_typeProperties_host": {
+						"value": "[parameters('lsonprem_properties_typeProperties_host')]"
+					},
+					"lsonprem_properties_typeProperties_userId": {
+						"value": "[parameters('lsonprem_properties_typeProperties_userId')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'ADFsandhyacourse_ArmTemplate_0')]"
+			]
 		}
 	]
 }
