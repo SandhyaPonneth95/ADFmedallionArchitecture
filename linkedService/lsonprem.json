@@ -1,0 +1,17 @@
+{
+	"name": "lsonprem",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "FileServer",
+		"typeProperties": {
+			"host": "C:\\sanfilesadf",
+			"userId": "desktop-22h8gpd\\dell",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJhY2M4MWMxZS05Y2RkLTRhMjktOTFmZS01MDI1MDRhOWU1ZGYiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "sanselfhosted",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
